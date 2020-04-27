@@ -1,5 +1,5 @@
 # Introduction
-Recruitment task fro Suade
+Recruitment task for Suade
 
 # Getting started
 
