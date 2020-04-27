@@ -1,6 +1,6 @@
 import os
 import json
-from models import ReportGenerator
+from models.data import ReportGenerator
 import datetime
 from flask import Flask, jsonify, abort
 from dotenv import load_dotenv

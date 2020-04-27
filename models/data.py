@@ -52,7 +52,7 @@ class ReportGenerator:
 
         # 5. Average order total for that day
         total_day_revenue = day_orders['total_amount'].sum()
-        num_orders_for_day = day_orders['total_amount'].size
+        num_orders_for_day = len(day_orders.index.get_level_values(0).unique())
         average_day_revenue = total_day_revenue / num_orders_for_day
         self.report['order_total_average'] = round(average_day_revenue, 2)
 
@@ -72,7 +72,7 @@ class ReportGenerator:
 
         # 7. Average amount of commission per order
         average_commissions = day_orders_commissions[['order_id', 'commission_amount']].groupby(
-            'order_id').mean().mean()
+            'order_id').sum().mean()
         self.report['commissions']['order_average'] = round(average_commissions.item(), 2)
 
         # 8. Total amount of commissions earned per promotion
