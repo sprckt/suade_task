@@ -6,7 +6,7 @@ from flask import Flask, jsonify, abort
 from dotenv import load_dotenv
 env_file = os.path.join(os.getcwd(), '.flaskenv')
 print(f'Env file at: {env_file}')
-load_dotenv('.flaskenv')
+load_dotenv(env_file)
 
 
 app = Flask(__name__)
@@ -29,7 +29,11 @@ def get_date_report(date):
     except ValueError:
         abort(400, 'The date needs to be supplied in the following format: YYYY-MM-DD')
 
-    data = ReportGenerator(date=date)
+    try:
+        data = ReportGenerator(date=date)
+    except FileNotFoundError as e:
+        print(e)
+        abort(400, f'Source data file not present: {e}')
 
     data.combined_order_data()
 
