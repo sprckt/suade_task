@@ -1,10 +1,72 @@
 # Introduction
-Recruitment task for Suade
+This project contains the recruitment task for the Suade Labs Backend Developer. The task requires the generation of
+ a metrics report from mock data from an imaginary e-shop. The requirements for this project were fulfilled using
+  Python3. Libraries used include Flask for the web framework and Pandas for data analysis, Jupyter Labs for data
+   exploration and Pytest for the testing framework.  
 
 # Getting started
+The project can be clone from [github](https://github.com/sprckt/suade_task).
+To get started:
+1. Create the virtual environment using:
+`python3 -m venv venv`
 
+2. Activate using:
+`source venv/bin/activate`
+
+3. To specify which staging to run the app in, create a `.flaskenv` file in the root directory and specify the stage eg:
+`APP_SETTINGS="config.ProductionConfig"`
+
+4. To run the web app:
+`python app.py` 
+
+5. Run tests using the following command
+` pytest -v tests/test_models.py`
+
+6. The app will be accessible at:
+`http://127.0.0.1:5000/ `
 
 # Data 
 
+The object expects the following source files:
+- commissions.csv
+- order_lines.csv
+- orders.csv
+- product_promotions.csv
+- products.csv
+- promotions.csv
+
+The output is provided as:
+```json
+"report" : {
+    "items": 30,
+    "customers": 2,
+    "total_discount_amount": 72,
+    "discount_rate_avg": 0.2,
+    "order_total_average": 223.48,
+    "commissions": {
+            "total": 68.27,
+            "order_average": 34.14,
+            "promotions": {
+                "2": 37.34,
+                "3": 5.75
+            }
+    }
+}
+```
+
+# Web App
+A light Flask web app was created for this task, using just the core Flask library. 
+The report is accessible at the following endpoint:
+`http://127.0.0.1:5000/date-report/<date>`
+
+The date should be provided in the following format: 'YYYY-MM-DD' 
 
 # Further development
+Due to the time constraints on the project, some design decisions were taken to expedite development. In a subsequent
+ iteration of the project, the following development work is proposed:
+ 
+- Use a database to store data and interact with database using an ORM or similar
+- Dockerise the project to achieve consistent builds
+- More variations of the test data - to test bad or incomplete data
+- Use a Flask REST library like Flask-RESTPlus to get some nice-to-haves such as Swagger documentation and nicer
+ parameter input and output validation

@@ -4,6 +4,10 @@ from app import app
 
 @pytest.fixture
 def client():
+
+    """
+    Test client
+    """
     app.config['TESTING'] = True
     with app.test_client() as client:
         yield client
@@ -11,6 +15,10 @@ def client():
 
 @pytest.fixture(scope='module')
 def sample_report():
+
+    """
+    Expected report from the test data
+    """
 
     report = {
         'items': 30,

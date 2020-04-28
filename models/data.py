@@ -23,7 +23,7 @@ class ReportGenerator:
             index_col=['date', 'product_id'])
         self.report = {}
 
-    def combined_order_data(self):
+    def calculate_metrics(self):
 
         """
         Analysis of data to generate the report metrics
@@ -53,6 +53,7 @@ class ReportGenerator:
         # 5. Average order total for that day
         total_day_revenue = day_orders['total_amount'].sum()
         num_orders_for_day = len(day_orders.index.get_level_values(0).unique())
+        print('Total orders: {total_day_revenue}, Num orders: {num_orders_for_day}')
         average_day_revenue = total_day_revenue / num_orders_for_day
         self.report['order_total_average'] = round(average_day_revenue, 2)
 
