@@ -1,6 +1,6 @@
 # Introduction
 This project contains the recruitment task for the Suade Labs Backend Developer. The task requires the generation of
- a metrics report from mock data from an imaginary e-shop. The requirements for this project were fulfilled using
+ a metrics report from an imaginary e-shop's sales data. The requirements for this project were fulfilled using
   Python3. Libraries used include Flask for the web framework and Pandas for data analysis, Jupyter Labs for data
    exploration and Pytest for the testing framework.  
 
@@ -27,7 +27,7 @@ To get started:
 
 # Data 
 
-The object expects the following source files:
+The metrics analysis expects the following source files in a data sub-folder:
 - commissions.csv
 - order_lines.csv
 - orders.csv
@@ -35,9 +35,9 @@ The object expects the following source files:
 - products.csv
 - promotions.csv
 
-The output is provided as:
+The response from the endpoint is provided in JSON, of the following form:
 ```json
-"report" : {
+"report": {
     "items": 30,
     "customers": 2,
     "total_discount_amount": 72,
@@ -54,8 +54,8 @@ The output is provided as:
 }
 ```
 
-# Web App
-A light Flask web app was created for this task, using just the core Flask library. 
+# Flask App
+A light Flask web app was used to serve up the report for this task 
 The report is accessible at the following endpoint:
 `http://127.0.0.1:5000/date-report/<date>`
 
@@ -65,8 +65,8 @@ The date should be provided in the following format: 'YYYY-MM-DD'
 Due to the time constraints on the project, some design decisions were taken to expedite development. In a subsequent
  iteration of the project, the following development work is proposed:
  
-- Use a database to store data and interact with database using an ORM or similar
+- Use a database to store data and interact with database using an ORM (SQLAlchemy preferred)
 - Dockerise the project to achieve consistent builds
 - More variations of the test data - to test bad or incomplete data
-- Use a Flask REST library like Flask-RESTPlus to get some nice-to-haves such as Swagger documentation and nicer
+- Use a Flask REST library like Flask-RESTPlus to get some nice-to-haves such as Swagger documentation and
  parameter input and output validation

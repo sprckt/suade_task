@@ -133,3 +133,4 @@ dmypy.json
 # Local
 .DS_Store
 .idea/
+tests/data/metrics.numbers
