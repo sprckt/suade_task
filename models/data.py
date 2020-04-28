@@ -1,6 +1,4 @@
 import pandas as pd
-import datetime
-from pprint import pprint
 
 
 class ReportGenerator:

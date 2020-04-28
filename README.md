@@ -4,6 +4,10 @@ This project contains the recruitment task for the Suade Labs Backend Developer.
   Python3. Libraries used include Flask for the web framework and Pandas for data analysis, Jupyter Labs for data
    exploration and Pytest for the testing framework.  
 
+Initial data exploration was carried out to understand the quality of the data and understand how the source files
+ related to each other. This is retained and provided in the `exploration.ipynb` file for completeness, however this
+  is not required for project build and run. 
+
 # Getting started
 The project can be clone from [github](https://github.com/sprckt/suade_task).
 To get started:
@@ -15,6 +19,8 @@ To get started:
 
 3. To specify which staging to run the app in, create a `.flaskenv` file in the root directory and specify the stage eg:
 `APP_SETTINGS="config.ProductionConfig"`
+Any other secrets or credentials should be stored in this file, and will be accessible as environment variables within
+ app. 
 
 4. To run the web app:
 `python app.py` 
@@ -65,8 +71,9 @@ The date should be provided in the following format: 'YYYY-MM-DD'
 Due to the time constraints on the project, some design decisions were taken to expedite development. In a subsequent
  iteration of the project, the following development work is proposed:
  
+- More comprehensive data validation of source data
 - Use a database to store data and interact with database using an ORM (SQLAlchemy preferred)
-- Dockerise the project to achieve consistent builds
+- Dockerise the project to achieve consistent builds wrap all commands in a Makefile
 - More variations of the test data - to test bad or incomplete data
 - Use a Flask REST library like Flask-RESTPlus to get some nice-to-haves such as Swagger documentation and
  parameter input and output validation
